@@ -1,12 +1,13 @@
 import React from "react";
 import { subCatagories, topChatagories } from "../utils/dataReterive";
+import Rating from "../comp/rating";
 
 const HomePage = () => {
   return (
     <div className={"min-h-screen bg-[#F9F9F9]"}>
       <div
         className={
-          "relative flex flex-row justify-between h-[280px] pl-32 pt-20 p-10 bg-[#008cff]"
+          "relative flex flex-row justify-between h-[280px] pl-10 pt-20 p-10 bg-[#008cff]"
         }
       >
         <div className={"flex flex-col gap-4"}>
@@ -32,7 +33,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className={"flex flex-col gap-3 px-10 mt-6 py-5"}>
-        <div className={"flex flex-row pl-[50px] justify-between "}>
+        <div className={"flex flex-row pl-[0px] justify-between "}>
           <div className={"font-semibold text-2xl"}>
             Discover your new favourite Place
           </div>
@@ -44,7 +45,7 @@ const HomePage = () => {
             see all
           </div>
         </div>
-        <div className={" pl-[50px]  py-5   grid grid-cols-4 gap-5 "}>
+        <div className={" pl-[0px] py-5 grid grid-cols-4 gap-5 "}>
           {topChatagories.map((item) => (
             <li
               className={
@@ -58,9 +59,20 @@ const HomePage = () => {
             </li>
           ))}
         </div>
-        <div>
+        <div className={"list-none grid grid-cols-4 gap-5 pr-0 pl-0 "}>
           {subCatagories.map((item) => (
-            <li>listst</li>
+            <li className={"bg-white p-[10px] rounded-[10px] border"}>
+              <div className="flex flex-row">
+                <div
+                  className={
+                    "w-16 h-16 p-3 mx-4 mr-2 ml-0 mb-3 rounded-full bg-white border border-blue-400"
+                  }
+                ></div>
+                <Rating rating={item.rating} />
+              </div>
+              <div>{item.name}</div>
+              <div className={"line-clamp-5 text-sm"}>{item.title}</div>
+            </li>
           ))}
         </div>
       </div>
